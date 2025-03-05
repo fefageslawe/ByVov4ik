@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Картинка со звуком</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        img {
+            cursor: pointer;
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Текст "Vov4ik" -->
+    <h1>Vov4ik</h1>
+
+    <!-- Картинка -->
+    <img src="https://symbl-world.akamaized.net/i/webp/fe/da2cf7320c6aacab49335ec1c339d9.webp" 
+         alt="Картинка" 
+         onclick="playSoundAndFullscreen()">
+
+    <!-- Аудио с зацикливанием -->
+    <audio id="myAudio" loop>
+        <source src="C:\Users\Талант пират\Desktop\Ffefage\Vova.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
+    <script>
+        function playSoundAndFullscreen() {
+            // Воспроизведение звука
+            var audio = document.getElementById("myAudio");
+            audio.play();
+
+            // Полноэкранный режим
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { // Firefox
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, Opera
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { // IE/Edge
+                document.documentElement.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
